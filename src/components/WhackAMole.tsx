@@ -16,8 +16,8 @@ export default function WhackAMole({ onBack, onReward, isPlayed, onPlayed }: Wha
   const [activeMole, setActiveMole] = useState<number | null>(null);
   const [hitMole, setHitMole] = useState<number | null>(null);
   
-  const gameIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const gameIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const cleanup = useCallback(() => {
     if (gameIntervalRef.current) {
